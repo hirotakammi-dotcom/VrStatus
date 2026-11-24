@@ -1,0 +1,14 @@
+{
+  "name": "VrStatus",
+  "description": "Displays a VR headset indicator only when Discord exposes an active VR client presence.",
+  "authors": [
+    {
+      "name": "hirotakammi-dotcom",
+      "id": "0"
+    }
+  ],
+  "main": "src/index.ts",
+  "vendetta": {
+    "icon": "ic_vr_headset"
+  }
+}
