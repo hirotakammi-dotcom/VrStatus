@@ -46,6 +46,7 @@ await mkdir(outputDir, { recursive: true });
 
 const bundle = await rollup({
     input: `${pluginDir}/${manifest.main}`,
+    external: (id) => id.startsWith("@vendetta/") || id === "react",
     plugins,
     onwarn(warning, defaultHandler) {
         if (warning.code === "THIS_IS_UNDEFINED") return;
