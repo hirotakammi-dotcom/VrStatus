@@ -41,3 +41,5 @@ This plugin does not start a VR session, change Discord account presence, spoof 
 ## Compatibility and verification
 
 The source uses the Vendetta-family plugin interfaces used by Kettu-compatible plugins. GitHub Actions builds and publishes the plugin bundle. Runtime behavior still needs to be verified on the installed Kettu/Discord version because Discord's internal presence and avatar components can change.
+
+<!-- Trigger clean Pages deployment; do not rerun an already-uploaded artifact job. -->
