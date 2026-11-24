@@ -1,22 +1,43 @@
-
 # VrStatus
 
-VR indicator plugin for Kettu Android.
+Kettu / Vendetta-family Android plugin that adds the green VR headset indicator to avatars only when the Discord client exposes an active VR client-presence field for that user.
 
-## Features
-- Green VR headset indicator
-- Dynamic avatar scanning
-- MutationObserver support
-- Automatic cleanup
-- No external backend
+## Install
 
-## Installation
+After the GitHub Actions deployment succeeds, install this plugin URL in Kettu:
 
-1. Download index.js.
-2. Install through a compatible Kettu plugin loader.
-3. Enable VrStatus.
+```text
+https://hirotakammi-dotcom.github.io/VrStatus/VrStatus/
+```
 
-## Important
+Kettu resolves `manifest.json` from the plugin directory and then downloads the JavaScript file declared by `manifest.json`.
 
-The indicator is a local visual overlay.
-It does not activate genuine Discord VR presence.
+## Build
+
+Requires Node.js 22.
+
+```sh
+npm install
+npm run build
+```
+
+Build output:
+
+```text
+dist/
+├── index.html
+├── .nojekyll
+└── VrStatus/
+    ├── manifest.json
+    └── index.js
+```
+
+## Presence behavior
+
+The plugin is read-only. It checks the Discord PresenceStore for an explicit `clientStatus.vr` (or `client_status.vr`) value and shows the indicator only when that value is active. If Kettu/Discord does not expose VR presence data, no indicator is shown.
+
+This plugin does not start a VR session, change Discord account presence, spoof a VR client, or make other users appear to be in VR.
+
+## Compatibility and verification
+
+The source uses the Vendetta-family plugin interfaces used by Kettu-compatible plugins. GitHub Actions builds and publishes the plugin bundle. Runtime behavior still needs to be verified on the installed Kettu/Discord version because Discord's internal presence and avatar components can change.
