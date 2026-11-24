@@ -93,7 +93,7 @@ function createVrBadge() {
     );
 }
 
-export const onLoad = () => {
+function onLoad() {
     try {
         presenceStore = findByStoreName("PresenceStore");
     } catch {
@@ -108,7 +108,7 @@ export const onLoad = () => {
     }
 
     if (!Avatar) {
-        console.warn("[VrStatus] Avatar component was not found; no patch was installed.");
+        console.warn("[VrStatus] Avatar component was not found; plugin loaded without an avatar patch.");
         return;
     }
 
@@ -123,13 +123,16 @@ export const onLoad = () => {
             createVrBadge()
         );
     });
-};
+}
 
-export const onUnload = () => {
+function onUnload() {
     try {
         unpatchAvatar?.();
     } finally {
         unpatchAvatar = undefined;
         presenceStore = undefined;
     }
-};
+}
+
+export { onLoad, onUnload };
+export default { onLoad, onUnload };
