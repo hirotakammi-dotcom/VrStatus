@@ -1,0 +1,13 @@
+
+{
+  "name": "VrStatus",
+  "description": "VR presence indicator for Kettu Android.",
+  "authors": [
+    {
+      "name": "hirotakammi-dotcom",
+      "id": "0"
+    }
+  ],
+  "main": "index.js",
+  "version": "1.0.0"
+}
